@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<style>
+		  body,td {
+			font-size: 10pt;
+		  }
+		  table {
+			background-color: black;
+			border: 1px black solid;
+			border-collapse: collapse;
+			width: 480px;
+		  }
+		  th {
+			border: 2px ridge maroon;
+			background-color: maroon;
+			color: white;
+			padding: 3px 12px;
+		  }
+		  tr {
+			background-color: white;
+			margin: 1px;
+		  }
+		  tr.striped {
+			background-color: gold;
+		  }
+		  td {
+			padding: 1px 8px;
+		  }
+		</style>
+		<script>
+			window.onload = function(){
+				var $ = function(select){
+					return document.getElementsByTagName(select);
+				};
+				var is_odd = function(arr,odd){					
+					var newArr = [];
+					var arrayLength = arr.length;
+
+					for(var i = 0;i < arrayLength;i++){
+						if(odd && (1 === (i % 2))){
+							//[]中不能什么都不带
+							newArr[newArr.length] = arr[i];
+						}
+						if(!odd && (0 === (i % 2))){
+							newArr[newArr.length] = arr[i];
+						}
+					}
+					return newArr;
+				};
+				var change_style = function(arr,is_change){
+					for(var i=0;i<arr.length;i++){
+						if(is_change){
+							arr[i].style.background = "gold";
+						}else{
+							arr[i].style.background = "white";
+						}
+					}
+				};				
+				var rows = $("tr");
+				var table = $("table")[0];
+				var oddRows = is_odd(rows,true);
+				var evenRows = is_odd(rows,false);
+				
+				change_style(oddRows,true);
+	
+				table.onmouseover = function(){
+					change_style(evenRows,true);
+					change_style(oddRows,false);
+				};
+				table.onmouseout = function(){
+					change_style(evenRows,false);
+					change_style(oddRows,true);
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<table>
+			<tr>
+				<th>语言</th>
+				<th>难度</th>
+				<th>是否流行</th>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>简单</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td>JavaScript</td>
+				<td>简单</td>
+				<td>是</td>				
+			</tr>
+			<tr>
+				<td>PHP</td>
+				<td>简单</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td>C++</td>
+				<td>难</td>
+				<td>一般</td>
+			</tr>
+			<tr>
+				<td>Java</td>
+				<td>中等</td>
+				<td>是</td>				
+			</tr>
+			<tr>
+				<td>Python</td>
+				<td>中等</td>
+				<td>是</td>
+			</tr>
+		</table>
+	</body>
+</html>

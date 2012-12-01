@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<style>
+			.module{
+				width:240px;	
+				border:1px solid #919191;
+			}
+			.header{
+				height:24px;
+				background: black url('./image/module.caption.backg.png');
+				color:white;
+				border:1px solid black;
+				font-weight: bold;
+			}
+			.header span{
+				margin-left:15px
+			}
+			.header #rollup{
+				float:right;
+				margin:3px;
+				cursor:pointer;
+			}
+			.body{
+				padding:10px;
+				background:#00ffff;
+			}
+		</style>
+		<script src="jquery-1.7.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#rollup").click(function(){
+					/*if($(".body").css("display")=="none"){
+						$(".body").show("slow");	
+					}
+					else{
+						$(".body").hide("slow");
+					}*/
+					$(".body").toggle("slow");
+					//$(".body").fadeTo(4000,0.5);
+				})
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<div class="module">
+			<div class="header">
+				<span>显示和隐藏</span>
+				<img src="./image/rollup.gif" id="rollup" />
+			</div>
+			<div class="body">
+				<p>这是一个可以显示和隐藏的模块，此模块是用jQuery写的，jQuery是一个javascript的库，这个库是为了是各个浏览器互相兼容才诞生的，库很简单，可能你看了一天的文档，你就可以写出各种效果了。</p>
+			</div>
+		</div>
+	</body>
+</html>

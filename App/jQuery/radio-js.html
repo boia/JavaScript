@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<style>
+			body{
+				background:#d5d5d5;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var select = document.getElementById("select");
+				var content = document.getElementsByClassName("content")[0];
+				var cook = document.getElementsByName("cook");
+
+				//±éÀú²ËÆ×£¬¼ì²âÄÄ¸ö±»Ñ¡ÖĞ
+				var which_checked = function(){
+					for(i=0;i<cook.length;i++){
+						if(cook[i].checked){
+							return cook[i];
+						}
+					}
+				};
+
+				select.onclick = function(){
+					var kindOfChecked = which_checked().value;
+					content.innerHTML = "ÄúÑ¡ÔñµÄ²ËÊÇ"+kindOfChecked;
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<form>
+			<h1>ÄúÑ¡ÔñµÄ²Ë:</h1>
+			<input type="radio" name="cook" value="ÓãÈâ" />ÓãÈâ
+			<input type="radio" name="cook" value="¼¦Èâ" checked />¼¦Èâ
+			<input type="radio" name="cook" value="Å£Èâ" />Å£Èâ
+			<input type="radio" name="cook" value="ÑòÈâ" />ÑòÈâ
+			<br /><input type="button" value="Ñ¡Ôñ" id="select" />
+		</form>
+		<div class="content"></div>
+	</body>
+
+</html>

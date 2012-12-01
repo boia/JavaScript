@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<style>
+			body{
+				background:#d5d5d5;
+			}
+		</style>
+		<script src="jquery-1.7.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#select").click(function(){
+					$(".content").html("ÄúÑ¡ÔñµÄ²ËÊÇ"+$("input:checked").val());
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<form>
+			<h1>ÄúÑ¡ÔñµÄ²Ë:</h1>
+			<input type="radio" name="cook" value="ÓãÈâ" />Óã
+			<input type="radio" name="cook" value="¼¦Èâ" checked />¼¦Èâ
+			<input type="radio" name="cook" value="Å£Èâ" />Å£Èâ
+			<input type="radio" name="cook" value="ÑòÈâ" />ÑòÈâ
+			<br /><input type="button" value="Ñ¡Ôñ" id="select" />
+		</form>
+		<div class="content"></div>
+	</body>
+</html>
